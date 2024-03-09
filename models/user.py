@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""initializing the User class"""
+"""initializing the User class that inherits from BaseModel"""
 
 from models.base_model import BaseModel
 
