@@ -13,7 +13,6 @@ from models.state import State
 from models.city import City
 
 
-
 def parse(arg):
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
@@ -53,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
         pass
-    
+
     def do_quit(self, arg):
         """Quit command to exit the program."""
         return True
@@ -62,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         """EOF signal to exit the program."""
         print("")
         return True
-    
+
     def default(self, arg):
         """Default behavior for cmd module when input is invalid"""
         argdict = {
@@ -84,8 +83,6 @@ class HBNBCommand(cmd.Cmd):
         print("*** Unknown syntax: {}".format(arg))
         return False
 
-    
-
     def do_create(self, arg):
         """Usage: create <class>
         have a new class instance.
@@ -98,8 +95,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(eval(argl[0])().id)
             storage.save()
-
-    
 
     def do_destroy(self, arg):
         """Utilization: destroy <class> <id> or <class>.destroy(<id>)
@@ -135,21 +130,22 @@ class HBNBCommand(cmd.Cmd):
             print(objl)
 
     def do_show(self, arg):
-            """Utilization: show <class> <id> or <class>.show(<id>)
-            show the representation of a given id.
-            """
-            argl = parse(arg)
-            objdict = storage.all()
-            if len(argl) == 0:
-                print("** class name missing **")
-            elif argl[0] not in HBNBCommand.__classes:
-                print("** class doesn't exist **")
-            elif len(argl) == 1:
-                print("** instance id missing **")
-            elif "{}.{}".format(argl[0], argl[1]) not in objdict:
-                print("** no instance found **")
-            else:
-                print(objdict["{}.{}".format(argl[0], argl[1])])
+        """Utilization: show <class> <id> or <class>.show(<id>)
+        show the representation of a given id.
+        """
+        argl = parse(arg)
+        objdict = storage.all()
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(argl) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argl[0], argl[1]) not in objdict:
+            print("** no instance found **")
+        else:
+            print(objdict["{}.{}".format(argl[0], argl[1])])
+
     def do_count(self, arg):
         """Utilization: count <class> or <class>.count()
         get the number of instances of a given class."""
@@ -163,7 +159,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Utilization: To modify an instance of a specified class and id,
         you can either add or update a specific attribute's key/value pair or
-        use a dictionary. This can be achieved using one of the following commands:
+        use a dictionary. Can be achieved using one of the following commands:
         update <class> <id> <attribute_name> <attribute_value>
         <class>.update(<id>, <attribute_name>, <attribute_value>)
         <class>.update(<id>, <dictionary>)
