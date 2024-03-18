@@ -1,4 +1,4 @@
-a readme file contains the HTML and CSS code that powers the visual presentation and structure of the hbnb project.
+the web static file contains the HTML and CSS code that powers the visual presentation and structure of the hbnb project.
 
 HTML files provide the foundation of the project's structure, organizing content into elements such as headings, paragraphs, lists, and links. It defines the overall layout and hierarchy of the page, including elements like navigation menus, headers, footers, and content sections.
 
